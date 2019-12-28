@@ -190,7 +190,7 @@ export class NSFWJS {
       gifObj.load(async () => {
         const arrayOfClasses = []
         const gifLength = gifObj.get_length()
-        const config.frameInterval || 1
+        const frameInterval = config.frameInterval || 1
         for (let i = 1; i <= gifLength; i = i + frameInterval) {
           gifObj.move_to(i)
           const classes = await this.classify(gifObj.get_canvas(), config.topk)
