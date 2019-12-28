@@ -13,7 +13,8 @@
     "contributors:generate": "all-contributors generate",
     "prep": "yarn && yarn build && cd example/nsfw_demo/ && yarn add ../../ && cd -",
     "scriptbundle": "browserify ./dist/nsfwjs.js --standalone nsfwjs --outfile ./dist/bundle.js",
-    "minbundle": "uglifyjs dist/bundle.js --compress --output dist/nsfwjs.min.js"
+    "minbundle": "uglifyjs dist/bundle.js --compress --output dist/nsfwjs.min.js",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
