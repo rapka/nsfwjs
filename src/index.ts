@@ -10,6 +10,7 @@ interface frameResult {
 
 interface classifyConfig {
   topk?: number
+  frameInterval: number
   onFrame?: (result: frameResult) => {}
   setGifControl?: (gifControl: typeof SuperGif) => {}
 }
@@ -189,7 +190,8 @@ export class NSFWJS {
       gifObj.load(async () => {
         const arrayOfClasses = []
         const gifLength = gifObj.get_length()
-        for (let i = 1; i <= gifLength; i++) {
+        const config.frameInterval || 1
+        for (let i = 1; i <= gifLength; i = i + frameInterval) {
           gifObj.move_to(i)
           const classes = await this.classify(gifObj.get_canvas(), config.topk)
           // Update to onFrame
