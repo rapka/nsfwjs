@@ -10,7 +10,7 @@ interface frameResult {
 
 interface classifyConfig {
   topk?: number
-  frameInterval: number
+  frameInterval?: number
   onFrame?: (result: frameResult) => {}
   setGifControl?: (gifControl: typeof SuperGif) => {}
 }
